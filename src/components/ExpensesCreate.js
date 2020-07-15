@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { coralPink, softGrayBlue } from "../constants/color";
+import { lighten, darken } from 'polished';
 import ExpensesCreateModal from "./ExpensesCreateModal";
 
 const ExpensesCreateBtn = styled.div`
@@ -25,8 +26,11 @@ const ExpensesCreateBtn = styled.div`
   cursor: pointer;
   transition: 0.35s;
 
-  $:hover {
-    backgorund-color: ${softGrayBlue}
+  &:hover {
+    background-color: ${lighten(0.1, softGrayBlue)};
+  }
+  &:active {
+    background-color: ${darken(0.1, softGrayBlue)};
   }
 `;
 function ExpensesCreate() {

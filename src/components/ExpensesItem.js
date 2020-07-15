@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { MdModeEdit, MdDelete } from 'react-icons/md'
 import { hotPink, softGrayBlue, cMeal, cGrocery, cTrans, cLiving, cMedical } from "../constants/color";
+import ExpensesUpdateModal from "./ExpensesUpdateModal";
 
 const itemsBackground = {
   meal : cMeal,
@@ -66,14 +67,24 @@ const ExpensesBtn = styled.div`
 `
 
 function ExpensesItem({id, category, title, content, amount}) {
+  const [open, setOpen] = useState(false);
+  const toggleHandler = () => setOpen(!open);
+
   return (
+    <>
+    {
+      open && (
+        <ExpensesUpdateModal open={open} toggleHandler={toggleHandler} data={{id, category, title, content, amount}} />
+      )
+    }
     <ExpensesItemBlock>
       <ExpensesCategoryItem category={category}>{title}</ExpensesCategoryItem>
       <p className="content">{content}</p>
       <p className="amount">{amount}원</p>
-      <ExpensesBtn><MdModeEdit/></ExpensesBtn>
+      <ExpensesBtn open={open} onClick={toggleHandler}><MdModeEdit/></ExpensesBtn>
       <ExpensesBtn className="item-delete"><MdDelete/></ExpensesBtn>
     </ExpensesItemBlock>
+    </>
   )
 }
 

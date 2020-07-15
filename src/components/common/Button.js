@@ -10,6 +10,7 @@ const ExpenseButton = styled.button`
     color: white;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
     ${props => {
         
         return props.type === 'cancel' ? css`background : #495057` : css`background: #3b5bdb;`
@@ -17,8 +18,6 @@ const ExpenseButton = styled.button`
 `
 
 function Button({type, text, ...rest}) {
-    
     return (<ExpenseButton type={type} {...rest} >{text}</ExpenseButton>)
 }
-
 export default Button

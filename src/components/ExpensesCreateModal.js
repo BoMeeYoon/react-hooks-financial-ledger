@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import Modal from '../components/common/Modal'
+import Modal from '../components/common/Modal';
+import Button from '../components/common/Button';
 import { useExpensesDispatch } from "../contexts/ExpensesContext";
-import useInputs from '../hooks/useInputs'
-import Button from '../components/common/Button'
+import useInputs from '../hooks/useInputs';
+import titles from "../constants/titles";
 
 const ExpenseModalBtns = styled.div`
     width: 100%;
@@ -43,15 +44,7 @@ const ExpenseContentBlock = styled.div`
 `
 
 function ExpensesCreateModal({open, toggleHandler}) {
-  const nextId = useRef(6);
-  const titles = [{
-      meal : '식사',
-      grocery : '식료품',
-      transportation : '교통',
-      living : '생활',
-      medical : '의료'
-  }];
-
+  const nextId = useRef(8);
   const initialInputs = {
       content:'',
       amount: 0,
