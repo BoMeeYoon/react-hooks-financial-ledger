@@ -31,7 +31,8 @@
 <span style="color:crimson">영상보기><br/>
 <br/>
 
-[financial-ledger]:(//tv.kakao.com/v/410779334)
+`financial-ledger`
+<//tv.kakao.com/v/410779334>
 
 <사진><br/>
 <img src="./src/images/project.png" width="500px" height="380px">
