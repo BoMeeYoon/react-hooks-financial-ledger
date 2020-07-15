@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { liteGray, semiDarkGrayBlue } from "../constants/color";
 import { useExpensesDispatch } from "../contexts/ExpensesContext";
@@ -40,13 +40,13 @@ const ExpensesCategoryBlock = styled.nav`
 function ExpensesCategory() {
   const dispatch = useExpensesDispatch();
 
-  const filterHandler = e => {
+  const filterHandler = useCallback( e => {
     const value = e.target.value;
     dispatch({
       type: "FILTER",
       filter: value
     })
-  };
+  }, [dispatch]);
 
   return <ExpensesCategoryBlock>
     <label htmlFor="category"></label>

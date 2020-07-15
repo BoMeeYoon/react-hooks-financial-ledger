@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import { MdModeEdit, MdDelete } from 'react-icons/md'
 import { hotPink, softGrayBlue, cMeal, cGrocery, cTrans, cLiving, cMedical } from "../constants/color";
@@ -70,8 +70,8 @@ const ExpensesBtn = styled.div`
 function ExpensesItem({id, category, title, content, amount}) {
   const [open, setOpen] = useState(false);
   const [check, setCheck] = useState(false);
-  const toggleHandler = () => setOpen(!open);
-  const checkHandler = () => setCheck(!check)
+  const toggleHandler = useCallback(() => setOpen(!open), [open]);
+  const checkHandler = useCallback(() => setCheck(!check), [check]);
 
   return (
     <>

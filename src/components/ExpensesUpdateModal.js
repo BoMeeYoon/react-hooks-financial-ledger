@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import Modal from '../components/common/Modal';
 import { useExpensesDispatch } from "../contexts/ExpensesContext";
@@ -48,8 +48,8 @@ function ExpensesUpdateModal({open, toggleHandler, data}) {
     const [{content, amount, category}, onChange] = useInputs(data)
     
     const dispatch = useExpensesDispatch();
-
-    const submitHandler = e => {
+  
+    const submitHandler = useCallback(e => {
         e.preventDefault();
         dispatch({
             type:'UPDATE',
@@ -62,10 +62,8 @@ function ExpensesUpdateModal({open, toggleHandler, data}) {
                 amount: Number(amount)
             }
         });
-
-        toggleHandler()
-
-    };
+        toggleHandler();
+    }, [dispatch, toggleHandler, category, content, amount, data]);
 
 return (
   <Modal>
@@ -80,7 +78,7 @@ return (
           <select name="category" value={category} onChange={onChange}>
               <option value="">전체</option>
               <option value="meal">식사</option>
-              <option value="groceries">식료품</option>
+              <option value="grocery">식료품</option>
               <option value="transportation">교통</option>
               <option value="living">생활</option>
               <option value="medical">의료</option>

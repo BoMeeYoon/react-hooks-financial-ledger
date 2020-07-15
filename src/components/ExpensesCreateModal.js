@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import Modal from '../components/common/Modal';
 import Button from '../components/common/Button';
@@ -55,25 +55,23 @@ function ExpensesCreateModal({open, toggleHandler}) {
   
   const dispatch = useExpensesDispatch();
     
-  const submitHandler = e => {
-      
-    e.preventDefault();
-    
-    dispatch({
-        type:'CREATE',
-        expense: {
-            id: nextId.current,
-            category,
-            title : titles[0][category],
-            content,
-            amount : Number(amount)
-        }
-    });
-    toggleHandler();
-    reset();
-    nextId.current +=1;
-
-  };
+  const submitHandler = useCallback(e => {
+      e.preventDefault();
+      dispatch({
+          type:'CREATE',
+          expense: {
+              id: nextId.current,
+              category,
+              title : titles[0][category],
+              content,
+              amount : Number(amount)
+          }
+      });
+      toggleHandler();
+      reset();
+      nextId.current +=1;
+    }, [dispatch, toggleHandler, reset, amount, category, content]
+  );
 
   return (
     <Modal>

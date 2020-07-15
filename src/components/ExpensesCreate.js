@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { coralPink, softGrayBlue } from "../constants/color";
@@ -35,7 +35,7 @@ const ExpensesCreateBtn = styled.div`
 `;
 function ExpensesCreate() {
   const [open, setOpen] = useState(false);
-  const toggleHandler = () => setOpen(!open);
+  const toggleHandler = useCallback( () => setOpen(!open), [open]);
   
   return (
     <>

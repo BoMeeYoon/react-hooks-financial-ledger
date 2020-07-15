@@ -20,7 +20,8 @@ function useInputs(initialForm) {
     const [form, dispatch] = useReducer(reducer, initialForm)
 
     const onChange = useCallback( e => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
+        console.log(name,value)
         dispatch( {type:'CHANGE', name, value} )
     }, [])
 

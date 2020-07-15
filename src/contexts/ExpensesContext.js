@@ -65,6 +65,7 @@ function expensesReducer(state, action) {
         expenses: state.expenses.concat(action.expense),
       };
     case "UPDATE":
+      console.log(action);
       return {
         ...state,
         expenses: state.expenses.map((expense) =>
