@@ -72,7 +72,10 @@ function expensesReducer(state, action) {
         ),
       };
     case "DELETE":
-      return state.expenses.filter((expense) => expense.id !== action.id);
+      return {
+        ...state,
+        expenses: state.expenses.filter((expense) => expense.id !== action.id),
+      };
     case "FILTER":
       return {
         ...state,

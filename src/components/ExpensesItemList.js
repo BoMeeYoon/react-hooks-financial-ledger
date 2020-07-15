@@ -5,7 +5,7 @@ import { useExpensesState } from "../contexts/ExpensesContext";
 
 const ExpensesItemWrapper = styled.section`
   height: 50%;
-
+  padding: 0 8px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   &::-webkit-scrollbar { 
