@@ -1,7 +1,8 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { liteGrayBlue } from "./constants/color";
-import ExpensesTemplate from "./components/ExpensesTemplate.js"
+import ExpensesTemplate from "./components/ExpensesTemplate.js";
+import {ExpensesProvider} from "./contexts/ExpensesContext"
 
 
 const GlobalStyle = createGlobalStyle`
@@ -30,10 +31,10 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <ExpensesProvider>
       <GlobalStyle />
       <ExpensesTemplate/>
-    </>
+    </ExpensesProvider>
   );
 }
 
