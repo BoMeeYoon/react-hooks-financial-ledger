@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
-import { coralPink } from "../constants/color";
+import { coralPink, softGrayBlue } from "../constants/color";
 
 
 const ExpensesCreateBtn = styled.div`
@@ -21,6 +21,13 @@ const ExpensesCreateBtn = styled.div`
   font-size: 40px;
   color: white;
   background-color: ${coralPink};
+
+  cursor: pointer;
+  transition: 0.35s;
+
+  $:hover {
+    backgorund-color: ${softGrayBlue}
+  }
 `;
 function ExpensesCreate() {
   return (
