@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ExpensesHeader from "./ExpensesHeader.js";
 import ExpensesCategory from "./ExpensesCategory.js";
-import ExpensesItem from "./ExpensesItem.js";
+import ExpensesItemList from "./ExpensesItemList.js";
 import ExpensesCreate from "./ExpensesCreate.js"
 
 const ExpensesTemplateBlock = styled.main`
@@ -22,7 +22,7 @@ function ExpensesTemplate() {
   return<ExpensesTemplateBlock>
     <ExpensesHeader />
     <ExpensesCategory />
-    <ExpensesItem />
+    <ExpensesItemList />
     <ExpensesCreate />
   </ExpensesTemplateBlock>
 }

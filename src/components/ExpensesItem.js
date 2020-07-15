@@ -10,15 +10,7 @@ const itemsBackground = {
   living : cLiving,
   medical : cMedical
 };
-const ExpensesItemWrapper = styled.section`
-  height: 50%;
 
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar { 
-    display: none;
-  }
-`;
 const ExpensesItemBlock = styled.div`
   display: flex;
   align-items: center;
@@ -29,13 +21,15 @@ const ExpensesItemBlock = styled.div`
   font-size: 14px;
   font-weight: bold;
 
-  p.title {
+  p.content {
     flex: 1;
   };
 
   p.amount {
     width: 70px;
-
+    margin-right: 1rem;
+    color: ${hotPink};
+    text-align: end;
   }
 `;
 
@@ -44,7 +38,7 @@ const ExpensesCategoryItem = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 80px;
+  width: 90px;
   height: 40px;
   margin-right: 16px;
   border-radius: 8px;
@@ -71,17 +65,16 @@ const ExpensesBtn = styled.div`
   };
 `
 
-function ExpensesItem() {
+function ExpensesItem({id, category, title, content, amount}) {
+  console.log(id, category, title, amount)
   return (
-    <ExpensesItemWrapper>
-      <ExpensesItemBlock>
-        <ExpensesCategoryItem>식사</ExpensesCategoryItem>
-        <p className="title">이모식당</p>
-        <p className="amount">-100원</p>
-        <ExpensesBtn><MdModeEdit/></ExpensesBtn>
-        <ExpensesBtn className="item-delete"><MdDelete/></ExpensesBtn>
-      </ExpensesItemBlock>
-    </ExpensesItemWrapper>
+    <ExpensesItemBlock>
+      <ExpensesCategoryItem category={category}>{title}</ExpensesCategoryItem>
+      <p className="content">{content}</p>
+      <p className="amount">{amount}원</p>
+      <ExpensesBtn><MdModeEdit/></ExpensesBtn>
+      <ExpensesBtn className="item-delete"><MdDelete/></ExpensesBtn>
+    </ExpensesItemBlock>
   )
 }
 
