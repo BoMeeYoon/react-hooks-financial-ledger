@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { coralPink, softGrayBlue } from "../constants/color";
-
+import ExpensesCreateModal from "./ExpensesCreateModal";
 
 const ExpensesCreateBtn = styled.div`
   position: absolute;
@@ -30,9 +30,20 @@ const ExpensesCreateBtn = styled.div`
   }
 `;
 function ExpensesCreate() {
+  const [open, setOpen] = useState(false);
+  const toggleHandler = () => setOpen(!open);
+  
   return (
-    <ExpensesCreateBtn><MdAdd/></ExpensesCreateBtn>
-  )
+    <>
+      {open && (
+        <ExpensesCreateModal open={open} toggleHandler={toggleHandler} />
+      )}
+        <ExpensesCreateBtn
+          open={open} onClick={toggleHandler}>
+            <MdAdd/>
+        </ExpensesCreateBtn>
+    </>
+    )
 }
 
 export default ExpensesCreate;

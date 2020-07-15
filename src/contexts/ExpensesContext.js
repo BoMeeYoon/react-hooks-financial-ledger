@@ -43,10 +43,13 @@ const initialState = {
 }
 
 function expensesReducer(state, action) {
-  console.log(state.expenses, action.filter)
+  
   switch(action.type) {
     case "CREATE" :
-      return state.expenses.concat(action.expense);
+      return {
+        ...state,
+        expenses: state.expenses.concat(action.expense)
+      };
     case "UPDATE" :
       return state.expenses.map(expense => expense.id === action.id ? expense = action.expense : expense);
     case "DELETE" :
