@@ -66,7 +66,6 @@ const ExpensesBtn = styled.div`
 `
 
 function ExpensesItem({id, category, title, content, amount}) {
-  console.log(id, category, title, amount)
   return (
     <ExpensesItemBlock>
       <ExpensesCategoryItem category={category}>{title}</ExpensesCategoryItem>

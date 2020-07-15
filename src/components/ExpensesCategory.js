@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { liteGray, semiDarkGrayBlue } from "../constants/color";
+import { useExpensesDispatch } from "../contexts/ExpensesContext";
 
 const ExpensesCategoryBlock = styled.nav`
   display: flex;
@@ -37,9 +38,19 @@ const ExpensesCategoryBlock = styled.nav`
 
 
 function ExpensesCategory() {
+  const dispatch = useExpensesDispatch();
+
+  const filterHandler = e => {
+    const value = e.target.value;
+    dispatch({
+      type: "FILTER",
+      filter: value
+    })
+  };
+
   return <ExpensesCategoryBlock>
     <label htmlFor="category"></label>
-    <select name="category" id="main-category">
+    <select name="category" id="main-category" onChange={filterHandler}>
       <option value="all">전체</option>
       <option value="meal">식사</option>
       <option value="grocery">식료품</option>

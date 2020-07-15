@@ -22,21 +22,25 @@ const ExpensesHeaderBlock = styled.header`
     color: ${hotPink};
   }
 `;
-const calculateTotalAmount = (expenses) => {
-  return expenses.reduce((acc, expense) => {
+const calculateTotalAmount = expenses => 
+  expenses.reduce((acc, expense) => {
     acc -= expense.amount;
     return acc;
   }, 0);
-};
+;
 function ExpensesHeader() {
   const { expenses } = useExpensesState();
+  
   const date = new Date();
-  const dateString = date.toLocaleDateString("ko-KR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
+  const dateString = useMemo(()=> 
+    date.toLocaleDateString("ko-KR", 
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }), [date]
+  );
+  
   const total = useMemo(() => calculateTotalAmount(expenses), [expenses]);
   
   return (

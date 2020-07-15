@@ -43,6 +43,7 @@ const initialState = {
 }
 
 function expensesReducer(state, action) {
+  console.log(state.expenses, action.filter)
   switch(action.type) {
     case "CREATE" :
       return state.expenses.concat(action.expense);
@@ -51,7 +52,11 @@ function expensesReducer(state, action) {
     case "DELETE" :
       return state.expenses.filter(expense => expense.id !== action.id);
     case "FILTER" :
-      return state.expenses.filter(expense => expense.category === action.filter);
+      return {
+        ...state,
+        filter : action.filter,
+        filterExpenses : state.expenses.filter(expense => expense.category === action.filter)
+      }
     default: throw new Error('error')
    }
 };

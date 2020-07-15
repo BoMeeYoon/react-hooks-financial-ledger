@@ -15,7 +15,7 @@ const ExpensesItemWrapper = styled.section`
 
 function ExpensesItemList() {
   const { expenses, filter, filterExpenses } = useExpensesState();
-
+  console.log(filter)
   return (
     <ExpensesItemWrapper>
       {
