@@ -27,6 +27,7 @@
 
 ## 결과물
 <영상보기><br/>
+[financial-ledger](//tv.kakao.com/v/410779334)
 <br/>
 
 <사진><br/>
