@@ -26,9 +26,10 @@
 <br/>
 
 ## 결과물
-<영상보기>
+<영상보기><br/>
+<br/>
 
-<사진>
+<사진><br/>
 <img src="./src/images/project.png" width="500px" height="380px">
 <br/>
 
