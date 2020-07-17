@@ -13,6 +13,12 @@
   3. `contextAPI` 와 `useReducer` 로 상태를 관리한다.
 <br/>
 
+## 개발인원
+   - 개인프로젝트
+ 
+## 개발기간
+   - 7/6 - 7/16 
+
 ## 아키텍쳐
   - `Context Api`: createContext와 useReducer 를 활용해 context api에서 state와 dispatch를 각각 내보냄
   - `Utils`: 공통적으로 사용하는 로직 분리
