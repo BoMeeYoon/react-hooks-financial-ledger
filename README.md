@@ -17,7 +17,7 @@
    - 개인프로젝트
  
 ## 개발기간
-   - 7/6 - 7/16 
+   - 7/6 - 7/15 
 
 ## 아키텍쳐
   - `Context Api`: createContext와 useReducer 를 활용해 context api에서 state와 dispatch를 각각 내보냄
